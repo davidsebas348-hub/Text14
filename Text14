@@ -1,5 +1,5 @@
 -- ======================
--- ESPERAR CARGA
+-- SBS HUB COMPLETO FINAL
 -- ======================
 if not game:IsLoaded() then game.Loaded:Wait() end
 
@@ -8,56 +8,34 @@ if not game:IsLoaded() then game.Loaded:Wait() end
 -- ======================
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 local Workspace = game:GetService("Workspace")
+local UserInputService = game:GetService("UserInputService")
 
-local player = Players.LocalPlayer
-local PlayerGui = player:WaitForChild("PlayerGui")
-
--- ======================
--- VARIABLES
--- ======================
-local espEnabled = false
-local scanConnection
-local highlights = {}
-
-local TrapActive = false
-local ESPGuardActive = false
-local heightOffset = 10
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 -- ======================
--- SCREEN GUI
+-- CREAR GUI PRINCIPAL
 -- ======================
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "SBS_HUB"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = PlayerGui
 
--- ======================
--- COLORES
--- ======================
-local backgroundColor = Color3.fromRGB(0,0,0)
-local buttonColor = Color3.fromRGB(20,20,20)
-local buttonHoverColor = Color3.fromRGB(40,40,40)
-local textColor = Color3.fromRGB(255,255,255)
-local lineColor = Color3.fromRGB(255,255,255)
-
--- ======================
--- FRAME PRINCIPAL
--- ======================
 local mainFrame = Instance.new("Frame")
-mainFrame.Size = UDim2.new(0,400,0,300)
-mainFrame.Position = UDim2.new(0.5,-200,0.5,-150)
-mainFrame.BackgroundColor3 = backgroundColor
+mainFrame.Size = UDim2.new(0,500,0,350)
+mainFrame.Position = UDim2.new(0.5,-250,0.5,-175)
+mainFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 mainFrame.BorderSizePixel = 0
 mainFrame.Parent = screenGui
 
 local stroke = Instance.new("UIStroke", mainFrame)
-stroke.Color = lineColor
+stroke.Color = Color3.fromRGB(255,255,255)
 stroke.Thickness = 2
 
 -- ======================
--- DRAG MAIN FRAME
+-- DRAG GUI PRINCIPAL
 -- ======================
 do
     local dragging, dragStart, startPos, dragInput
@@ -97,9 +75,9 @@ end
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,0,0,50)
 title.Position = UDim2.new(0,0,0,0)
-title.BackgroundColor3 = backgroundColor
+title.BackgroundColor3 = Color3.fromRGB(0,0,0)
 title.Text = "SBS HUB | BUILD YOUR ESCAPE"
-title.TextColor3 = textColor
+title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
 title.TextScaled = true
 title.TextWrapped = true
@@ -110,258 +88,205 @@ title.Parent = mainFrame
 local line = Instance.new("Frame", mainFrame)
 line.Size = UDim2.new(1,0,0,2)
 line.Position = UDim2.new(0,0,0,50)
-line.BackgroundColor3 = lineColor
+line.BackgroundColor3 = Color3.fromRGB(255,255,255)
 
 -- ======================
--- FRAMES
+-- FRAMES LATERALES
 -- ======================
 local leftFrame = Instance.new("Frame", mainFrame)
 leftFrame.Size = UDim2.new(0,150,1,-52)
 leftFrame.Position = UDim2.new(0,0,0,52)
-leftFrame.BackgroundColor3 = backgroundColor
+leftFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
 local rightFrame = Instance.new("Frame", mainFrame)
 rightFrame.Size = UDim2.new(1,-150,1,-52)
 rightFrame.Position = UDim2.new(0,150,0,52)
-rightFrame.BackgroundColor3 = backgroundColor
+rightFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 
 local midLine = Instance.new("Frame", mainFrame)
 midLine.Size = UDim2.new(0,2,1,-52)
 midLine.Position = UDim2.new(0,150,0,52)
-midLine.BackgroundColor3 = lineColor
+midLine.BackgroundColor3 = Color3.fromRGB(255,255,255)
 
 -- ======================
--- FUNCIONES ESP PANEL
+-- FUNCION CREAR BOTONES
 -- ======================
-local function addPanelESP(panel)
-    if panel:FindFirstChild("PanelESP") then return end
-    if not panel:IsA("BasePart") and not panel:FindFirstChildWhichIsA("BasePart") then return end
-
-    local h = Instance.new("Highlight")
-    h.Name = "PanelESP"
-    h.FillColor = Color3.fromRGB(0,255,0)
-    h.FillTransparency = 0.6
-    h.OutlineColor = Color3.fromRGB(0,255,0)
-    h.Parent = panel
-
-    table.insert(highlights, h)
-end
-
-local function scanPanels()
-    local folder = Workspace:FindFirstChild("PanelSpawn")
-    if not folder then return end
-    for _, p in ipairs(folder:GetDescendants()) do
-        if p:FindFirstChildWhichIsA("ProximityPrompt") then
-            addPanelESP(p)
-        end
-    end
-end
-
-local function clearESP()
-    for _, h in ipairs(highlights) do
-        if h and h.Parent then h:Destroy() end
-    end
-    table.clear(highlights)
-end
-
--- ======================
--- FUNCIONES GUARD
--- ======================
-local function GetNPCGuard()
-	for _, obj in pairs(workspace:GetDescendants()) do
-		if obj:IsA("Model")
-		and obj:FindFirstChildOfClass("Humanoid")
-		and obj:FindFirstChild("HumanoidRootPart")
-		and not Players:GetPlayerFromCharacter(obj) then
-			return obj
-		end
-	end
-	return nil
-end
-
-local function SetupBodyPosition(root)
-	local bp = root:FindFirstChild("TrapBP")
-	if not bp then
-		bp = Instance.new("BodyPosition")
-		bp.Name = "TrapBP"
-		bp.MaxForce = Vector3.new(1e5,1e5,1e5)
-		bp.D = 30
-		bp.P = 5000
-		bp.Parent = root
-	end
-	return bp
-end
-
-local function DisableTrap(root)
-	local bp = root:FindFirstChild("TrapBP")
-	if bp then bp:Destroy() end
-end
-
-local function AddBoxNPC(npc)
-	if npc:FindFirstChild("BoxESP") then return end
-	local h = Instance.new("Highlight")
-	h.Name = "BoxESP"
-	h.FillColor = Color3.fromRGB(0,120,255)
-	h.FillTransparency = 0.5
-	h.OutlineColor = Color3.fromRGB(0,120,255)
-	h.OutlineTransparency = 0
-	h.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-	h.Parent = npc
-end
-
-local function RemoveBoxNPC(npc)
-	local h = npc:FindFirstChild("BoxESP")
-	if h then h:Destroy() end
-end
-
--- ======================
--- LOOP PRINCIPAL
--- ======================
-RunService.RenderStepped:Connect(function()
-	local char = player.Character
-	if not char then return end
-	local root = char:FindFirstChild("HumanoidRootPart")
-	if not root then return end
-
-	if TrapActive then
-		local guard = GetNPCGuard()
-		if guard and guard:FindFirstChild("HumanoidRootPart") then
-			root.CFrame = guard.HumanoidRootPart.CFrame + Vector3.new(0,heightOffset,0)
-			local bp = SetupBodyPosition(root)
-			bp.Position = guard.HumanoidRootPart.Position + Vector3.new(0,heightOffset,0)
-		else
-			DisableTrap(root)
-		end
-	else
-		DisableTrap(root)
-	end
-
-	for _, obj in pairs(workspace:GetDescendants()) do
-		if obj:IsA("Model")
-		and obj:FindFirstChild("Humanoid")
-		and obj:FindFirstChild("HumanoidRootPart")
-		and not Players:GetPlayerFromCharacter(obj) then
-			if ESPGuardActive then
-				AddBoxNPC(obj)
-			else
-				RemoveBoxNPC(obj)
-			end
-		end
-	end
-end)
-
--- ======================
--- MENUS
--- ======================
-local menuOrder = {"PANELS","GUARD","TP/TEAM","MISC","YOUTUBE"}
-local menuData = {
-    ["PANELS"] = {"ESP PANELS","AUTO COLLECT PANELS","AUTO PONER PANELS","WIN"}, -- WIN agregado
-    ["GUARD"] = {"TRAP GUARDIA","ESP GUARDIAS"},
-    ["TP/TEAM"] = {"TP GUI","REVIVE TEAM GUI","AUTO WIN (TEAM)"},
-    ["MISC"] = {"LocalPlayer"},
-    ["YOUTUBE"] = {"YOUTUBE:SEBAS SCRIPT","SUSCRIBETE:)"}
-}
-
 local function createButton(parent,text,y,callback)
     local b = Instance.new("TextButton")
     b.Size = UDim2.new(1,-20,0,30)
     b.Position = UDim2.new(0,10,0,y)
-    b.BackgroundColor3 = buttonColor
-    b.TextColor3 = textColor
+    b.BackgroundColor3 = Color3.fromRGB(20,20,20)
+    b.TextColor3 = Color3.fromRGB(255,255,255)
     b.Text = text
     b.Font = Enum.Font.GothamBold
     b.TextSize = 14
     b.BorderSizePixel = 0
     b.Parent = parent
-    b.MouseEnter:Connect(function() b.BackgroundColor3 = buttonHoverColor end)
-    b.MouseLeave:Connect(function() b.BackgroundColor3 = buttonColor end)
+    b.MouseEnter:Connect(function() b.BackgroundColor3 = Color3.fromRGB(40,40,40) end)
+    b.MouseLeave:Connect(function() b.BackgroundColor3 = Color3.fromRGB(20,20,20) end)
     b.MouseButton1Click:Connect(callback)
 end
 
 -- ======================
--- CREAR MENÚS
+-- MENUS Y BOTONES
 -- ======================
-local y = 10
-for _, menu in ipairs(menuOrder) do
-    createButton(leftFrame, menu, y, function()
-        rightFrame:ClearAllChildren()
+local menuOrder = {"MAIN","PANELS","GUARD","TEAM/TP","ESP A PLAYERS","TOOL(OP)","AUTOWIN","YOUTUBE"}
 
-        local title = Instance.new("TextLabel", rightFrame)
-        title.Size = UDim2.new(1,0,0,30)
-        title.BackgroundTransparency = 1
-        title.Text = menu
-        title.TextColor3 = textColor
-        title.Font = Enum.Font.GothamBold
-        title.TextSize = 18
+local menuData = {
+    ["MAIN"] = {"DESYNC","LOCALPLAYER","CREAR PISO FLOTANTE","COPIAR TOOLS","INSTANT PROMPT"},
+    ["PANELS"] = {"AUTO COLLECT PANELS","AUTO PONER PANELS","ESP PANELS","ESP PANELS V2"},
+    ["GUARD"] = {"TRAP GUARD","ESP GUARD"},
+    ["TEAM/TP"] = {"REVIVE GUI","TP GUI","AUTO WIN TEAM"},
+    ["ESP A PLAYERS"] = {"ESP HIGHLIGHTS","ESP HIGHLIGHTS V2","ESP TO PLAYERS IN THE BACK","ESP TRACERS","ESP DISTANCE + NAME"},
+    ["TOOL(OP)"] = {"Trap","Speed","Break","Show","Ghost","Decoy"},
+    ["AUTOWIN"] = {"INSTANT WIN"},
+    ["YOUTUBE"] = {"YOUTUBE:SBS HUB","SUSCRIBETE:)"}
+}
+
+local function clearFrame(frame)
+    for _, v in pairs(frame:GetChildren()) do
+        if v:IsA("TextButton") or v:IsA("TextLabel") then
+            v:Destroy()
+        end
+    end
+end
+
+for _, menu in ipairs(menuOrder) do
+    createButton(leftFrame, menu, 10 + (_-1)*35, function()
+        clearFrame(rightFrame)
+
+        local titleLabel = Instance.new("TextLabel", rightFrame)
+        titleLabel.Size = UDim2.new(1,0,0,30)
+        titleLabel.BackgroundTransparency = 1
+        titleLabel.Text = menu
+        titleLabel.TextColor3 = Color3.fromRGB(255,255,255)
+        titleLabel.Font = Enum.Font.GothamBold
+        titleLabel.TextSize = 18
 
         local oy = 40
         for _, opt in ipairs(menuData[menu]) do
-            createButton(rightFrame, opt, oy, function()
-                -- ================== PANELS ==================
-                if menu == "PANELS" then
-                    if opt == "ESP PANELS" then
-                        espEnabled = not espEnabled
-                        if espEnabled then
-                            scanPanels()
-                            scanConnection = RunService.RenderStepped:Connect(scanPanels)
-                        else
-                            if scanConnection then scanConnection:Disconnect() end
-                            clearESP()
-                        end
-                    elseif opt == "AUTO COLLECT PANELS" then
+            createButton(rightFrame,opt,oy,function()
+                -- Loadstring de cada botón
+                if menu == "MAIN" then
+                    if opt == "DESYNC" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text24/refs/heads/main/Text23.lua",true))()
+                    elseif opt == "LOCALPLAYER" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text8/refs/heads/main/Text8.lua",true))()
+                    elseif opt == "CREAR PISO FLOTANTE" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text161/refs/heads/main/Text161.lua",true))()
+                    elseif opt == "COPIAR TOOLS" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text221/refs/heads/main/Text221.lua", true))()
+                    elseif opt == "INSTANT PROMPT" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text110/refs/heads/main/Text110",true))()
+                    end
+                elseif menu == "PANELS" then
+                    if opt == "AUTO COLLECT PANELS" then
                         loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text10/refs/heads/main/Text10.lua", true))()
                     elseif opt == "AUTO PONER PANELS" then
                         loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text12/refs/heads/main/Text12", true))()
-                    elseif opt == "WIN" then
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text13/refs/heads/main/Text13.lua", true))()
-                        title.Text = "PANELS/WIN"
+                    elseif opt == "ESP PANELS" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text212/refs/heads/main/Text212.lua", true))()
+                    elseif opt == "ESP PANELS V2" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text211/refs/heads/main/Text211.lua", true))()
                     end
-
-                -- ================== GUARD ==================
                 elseif menu == "GUARD" then
-                    if opt == "TRAP GUARDIA" then TrapActive = not TrapActive
-                    elseif opt == "ESP GUARDIAS" then ESPGuardActive = not ESPGuardActive
+                    if opt == "TRAP GUARD" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text213/refs/heads/main/Text213.lua", true))()
+                    elseif opt == "ESP GUARD" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text214/refs/heads/main/Text214.lua", true))()
                     end
-
-                -- ================== TP/TEAM ==================
-                elseif menu == "TP/TEAM" then
-                    if opt == "TP GUI" then
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text3/refs/heads/main/Text3", true))()
-                    elseif opt == "REVIVE TEAM GUI" then
+                elseif menu == "TEAM/TP" then
+                    if opt == "REVIVE GUI" then
                         loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Revive-gui/refs/heads/main/Op_gui.lua", true))()
-                    elseif opt == "AUTO WIN (TEAM)" then
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text6/refs/heads/main/Text6.lua", true))()
-                        screenGui:Destroy() -- cerrar GUI al activar Auto Win
+                    elseif opt == "TP GUI" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text3/refs/heads/main/Text3", true))()
+                    elseif opt == "AUTO WIN TEAM" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text222/refs/heads/main/Text222.lua", true))()
                     end
-
-                -- ================== MISC ==================
-                elseif menu == "MISC" then
-                    if opt == "LocalPlayer" then
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text8/refs/heads/main/Text8.lua", true))()
+                elseif menu == "ESP A PLAYERS" then
+                    if opt == "ESP HIGHLIGHTS" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text178/refs/heads/main/Text178.lua", true))()
+                    elseif opt == "ESP HIGHLIGHTS V2" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text179/refs/heads/main/Text179.lua", true))()
+                    elseif opt == "ESP TO PLAYERS IN THE BACK" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text180/refs/heads/main/Text180.lua", true))()
+                    elseif opt == "ESP TRACERS" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text181/refs/heads/main/Text181.lua", true))()
+                    elseif opt == "ESP DISTANCE + NAME" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text182/refs/heads/main/Text182.lua", true))()
+                    end
+                elseif menu == "TOOL(OP)" then
+                    if opt == "Trap" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text215/refs/heads/main/Text215.lua", true))()
+                    elseif opt == "Speed" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text216/refs/heads/main/Text216.lua", true))()
+                    elseif opt == "Break" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text217/refs/heads/main/Text217.lua", true))()
+                    elseif opt == "Show" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text218/refs/heads/main/Text218.lua", true))()
+                    elseif opt == "Ghost" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text219/refs/heads/main/Text219.lua", true))()
+                    elseif opt == "Decoy" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text220/refs/heads/main/Text220.lua", true))()
+                    end
+                elseif menu == "AUTOWIN" then
+                    if opt == "INSTANT WIN" then
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text13/refs/heads/main/Text13.lua", true))()
                     end
                 end
             end)
-            oy += 40
+            oy = oy + 40
         end
     end)
-    y += 40
 end
 
 -- ======================
--- ICONO SBS
+-- ICONO SBS PARA ABRIR/CERRAR CON DRAG
 -- ======================
 local toggle = Instance.new("TextButton", screenGui)
 toggle.Size = UDim2.new(0,60,0,60)
 toggle.Position = UDim2.new(1,-80,0,20)
-toggle.BackgroundColor3 = buttonColor
+toggle.BackgroundColor3 = Color3.fromRGB(20,20,20)
 toggle.Text = "SBS"
-toggle.TextColor3 = textColor
+toggle.TextColor3 = Color3.fromRGB(255,255,255)
 toggle.Font = Enum.Font.GothamBold
 toggle.TextSize = 24
 toggle.BorderSizePixel = 0
 
 local corner = Instance.new("UICorner", toggle)
 corner.CornerRadius = UDim.new(0.3,0)
+
+do
+    local dragging, dragStart, startPos, dragInput
+    local function update(input)
+        local delta = input.Position - dragStart
+        toggle.Position = UDim2.new(
+            startPos.X.Scale, startPos.X.Offset + delta.X,
+            startPos.Y.Scale, startPos.Y.Offset + delta.Y
+        )
+    end
+
+    toggle.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = toggle.Position
+            input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then dragging = false end
+            end)
+        end
+    end)
+
+    toggle.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if input == dragInput and dragging then update(input) end
+    end)
+end
 
 local open = true
 toggle.MouseButton1Click:Connect(function()
