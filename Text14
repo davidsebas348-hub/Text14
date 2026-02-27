@@ -1,3 +1,13 @@
+-- evitar duplicado + auto execute
+if getgenv().SBS_AUTO then return end
+getgenv().SBS_AUTO = true
+
+local URL = "https://raw.githubusercontent.com/davidsebas348-hub/Text14/refs/heads/main/Text14"
+
+if queue_on_teleport then
+    queue_on_teleport('loadstring(game:HttpGet("'..URL..'"))()')
+end
+
 -- ======================
 -- SBS HUB COMPLETO FINAL (FIX TOTAL)
 -- ======================
@@ -86,7 +96,7 @@ end
 local title = Instance.new("TextLabel", mainFrame)
 title.Size = UDim2.new(1,0,0,50)
 title.BackgroundColor3 = Color3.fromRGB(0,0,0)
-title.Text = "SBS HUB | Scary Shawarma"
+title.Text = "SBS HUB | BUILD YOUR ESCAPE"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
 title.TextScaled = true
