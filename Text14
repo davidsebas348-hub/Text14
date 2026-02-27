@@ -184,7 +184,7 @@ end
 -- SCROLL POR SUBMENU
 -- ======================
 local scrollConfig = {
-    ["MAIN"] = false,
+    ["MAIN"] = true,
     ["OP"] = true,
     ["PANELS"] = false,
     ["GUARD"] = false,
@@ -192,7 +192,7 @@ local scrollConfig = {
     ["TP"] = false,
     ["GAMEPASS"] = true,
     ["TIME"] = false,
-    ["TRAPS"] = false,
+    ["TRAPS"] = true,
     ["SERVER"] = false,
     ["PACK ANIMATION"] = false,
     ["EMOTES"] = false,
