@@ -30,7 +30,7 @@ local noToggleButtons = {
     ["+200.000"] = true,
     ["+2.000.000.000"] = true,
     ["AUTO PONER PANELS"] = true,
-    ["CAMBIAR COLOR DE EL ESP"] = true,
+    ["ESP PANELS"] = true,
     ["TRAP AURA (BETA)"] = true,
     ["SPAWN TRAP"] = true,
     ["TP GUI"] = true,
@@ -200,7 +200,6 @@ local menuData = {
         "LOCALPLAYER",
         "DESYNC",
         "INVISIBLE",
-        "FULL BRIGHT",
         "NO COOLDOWN TOOL",
         "COPIAR TOOL",
         "INSTAN PROMPT",
@@ -235,7 +234,6 @@ local menuData = {
         "AUTO COLLECT PANELS",
         "AUTO PONER PANELS",
         "ESP PANELS",
-        "CAMBIAR COLOR DE EL ESP",
     },
     ["GUARD"] = {
         "TRAP GUARD",
@@ -381,8 +379,6 @@ for i,menu in ipairs(menuOrder) do
                 elseif opt == "AUTO PONER PANELS" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text12/refs/heads/main/Text12"))()
                 elseif opt == "ESP PANELS" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text212/refs/heads/main/Text212.lua"))()
-                elseif opt == "CAMBIAR COLOR DE EL ESP" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text211/refs/heads/main/Text211.lua"))()
                 elseif opt == "ESP TRAPS" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text351/refs/heads/main/Text351.lua"))()
