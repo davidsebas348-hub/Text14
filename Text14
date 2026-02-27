@@ -194,7 +194,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","PANELS","GUARD","GAMEPASS","TIME","TRAPS","TP","WIN/TEAM","PACK ANIMATION","EMOTES","FLING","SERVER","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","PANELS","GUARD","GAMEPASS","TIME","TRAPS","TP","WIN/TEAM","FLING","SERVER","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
         "LOCALPLAYER",
@@ -202,7 +202,7 @@ local menuData = {
         "INVISIBLE",
         "NO COOLDOWN TOOL",
         "COPIAR TOOL",
-        "INSTAN PROMPT",
+        "INSTANT PROMPT",
         "NOCLIP PROMPT", 
         "ESP PLAYERS",
     },
