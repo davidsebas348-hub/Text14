@@ -38,6 +38,8 @@ local noToggleButtons = {
     ["LAG SERVER"] = true,
     ["NO COOLDOWN TOOL"] = true,
     ["COPIAR TOOL"] = true,
+    ["REVIVE TEAM (GUI)"] = true,
+    ["WIN TEAM"] = true,
 }
 local screenGui = Instance.new("ScreenGui", PlayerGui)
 screenGui.Name = "SBS_HUB"
@@ -185,7 +187,6 @@ local scrollConfig = {
     ["EMOTES"] = false,
     ["FLING"] = false,
     ["LOBBY"] = false,
-    ["SERVER"] = false,
     ["Fps"] = false,
     ["YOUTUBE"] = false
 }
@@ -237,7 +238,7 @@ local menuData = {
     },
     ["GUARD"] = {
         "TRAP GUARD",
-        "ESP GUARD"
+        "ESP GUARD",
         "DO NOT BE DETECTED",
     },
     ["TP"] = {
@@ -426,12 +427,12 @@ for i,menu in ipairs(menuOrder) do
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text269/refs/heads/main/Text269.lua"))()
                 elseif opt == "ESP PLAYERS" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text358/refs/heads/main/Text358.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
+                elseif opt == "REVIVE TEAM (GUI)" then
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Revive-gui/refs/heads/main/Op_gui.lua"))()
+                elseif opt == "WIN TEAM" then
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text222/refs/heads/main/Text222.lua"))()
+                elseif opt == "INSTANT WIN" then
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text13/refs/heads/main/Text13.lua"))()
                 elseif opt == "SEMI-INVISIBLE" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
                 elseif opt == "SEMI-INVISIBLE" then
