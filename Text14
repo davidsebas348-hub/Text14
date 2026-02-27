@@ -40,6 +40,7 @@ local noToggleButtons = {
     ["COPIAR TOOL"] = true,
     ["REVIVE TEAM (GUI)"] = true,
     ["WIN TEAM"] = true,
+    ["AUTO FARM"] = true,
 }
 local screenGui = Instance.new("ScreenGui", PlayerGui)
 screenGui.Name = "SBS_HUB"
@@ -287,7 +288,7 @@ local menuData = {
         "REVIVE TEAM (GUI)",
         "INSTANT WIN",
         "WIN TEAM",
-        "FARM WIN (CÓDIGO)"
+        "AUTO FARM"
     },
     ["YOUTUBE"] = {
         "YOUTUBE:SBS HUB",
@@ -433,22 +434,8 @@ for i,menu in ipairs(menuOrder) do
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text222/refs/heads/main/Text222.lua"))()
                 elseif opt == "INSTANT WIN" then
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text13/refs/heads/main/Text13.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
-                elseif opt == "SEMI-INVISIBLE" then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text335/refs/heads/main/Text335.lua"))()
+                elseif opt == "AUTO FARM" then
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Rrrrr/refs/heads/main/Autofarm.lua"))()
                 end
             end)
             oy += 40
