@@ -767,6 +767,7 @@ local menuOrder = {"MAIN","ESP","INOCENT","SHERIFF","MURDERER","TELEPORT","FAKEB
 local menuData = {
     ["MAIN"] = {
     "GODMODE",
+    "SELF REVIVE", 
     "DESYNC",
     "INVISIBLE",
     "JUMP(BUTTON)",
@@ -915,11 +916,11 @@ if topTitle then
         elseif opt == "GODMODE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text347/refs/heads/main/Text347.lua"))()
             
-        elseif opt == "NO ESP TO ME" then
+        elseif opt == "" then
             loadstring("getgenv().HIGHLIGHT_ME = not getgenv().HIGHLIGHT_ME")()
                             
-        elseif opt == "ESP NAME" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text418/refs/heads/main/Text418.lua"))()
+        elseif opt == "SELF REVIVE" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text337/refs/heads/main/Text337.lua"))()
                             
         elseif opt == "ESP DISTANCE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text419/refs/heads/main/Text419.lua"))()
