@@ -763,7 +763,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","ESP","INOCENT","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","PANELS","GUARD","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "GODMODE",
@@ -780,14 +780,14 @@ local menuData = {
     "FLY SPEED",
     "FLY",
 },
-    ["MURDERER"] = {
-        "KILL ALL",
-        "KILL SHERIFF",
+    ["PANELS"] = {
+        "AUTO COLLECT PANELS",
+        "AUTO PONER PANELS",
         "HITBOX EXTENDER",
         "SIZE",
         "TRASPARENCY 0-1",
     },
-    ["INOCENT"] = {
+    ["GUARD"] = {
         "GRAB GUN",
         "AUTO GRAB GUN",
     },
@@ -922,11 +922,11 @@ if topTitle then
         elseif opt == "SELF REVIVE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text337/refs/heads/main/Text337.lua"))()
                             
-        elseif opt == "ESP DISTANCE" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text419/refs/heads/main/Text419.lua"))()
+        elseif opt == "AUTO COLLECT PANELS" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text10/refs/heads/main/Text10.lua"))()
                             
-        elseif opt == "ESP TRACERS" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text420/refs/heads/main/Text420.lua"))()
+        elseif opt == "AUTO PONER PANELS" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text12/refs/heads/main/Text12"))()
 
         elseif opt == "KILL ALL" then
             getgenv().TARGET = "All"
