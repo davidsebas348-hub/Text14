@@ -1,7 +1,5 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text155/refs/heads/main/Text155.lua"))() -- Detectar Rol (importante)
-                            
 -- ======================
--- SBS HUB COMPLETO FINAL  (MM2)
+-- SBS HUB COMPLETO FINAL  (Build your escape))
 -- ======================
 repeat task.wait() until game:IsLoaded()
 
@@ -34,7 +32,7 @@ local doubleButtons = {
 
 -- poner título arriba de tal botón 
 local topTitles = {
-    ["SPEED"] = "MOVEMENT SETTINGS",
+    ["GODMODE"] = "OP",
     ["TRASPARENCY 0-"] = "OP",
 }
 
@@ -207,7 +205,7 @@ local buttonStates = getgenv().SBS_BUTTON_STATES
 local noToggleButtons = {
     ["YOUTUBE:SBS HUB"] = true,
     ["SUSCRIBETE:)"] = true,
-    ["SILENT AIM"] = true,
+    ["GODMODE"] = true,
     ["LOCALPLAYER"] = true,
     ["RESET STATS"] = true,
     ["DESNC"] = true,
@@ -768,6 +766,7 @@ local scrollConfig = {
 local menuOrder = {"MAIN","ESP","INOCENT","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
+    "GODMODE",
     "DESYNC",
     "INVISIBLE",
     "JUMP(BUTTON)",
@@ -913,8 +912,8 @@ if topTitle then
         if opt == "RESET STATS" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Reset-speed-jumpPower-y-gravedad-/refs/heads/main/Reset.lua"))()
 
-        elseif opt == "ESP PLAYERS" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text154/refs/heads/main/Text154.lua"))()
+        elseif opt == "GODMODE" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text347/refs/heads/main/Text347.lua"))()
             
         elseif opt == "NO ESP TO ME" then
             loadstring("getgenv().HIGHLIGHT_ME = not getgenv().HIGHLIGHT_ME")()
