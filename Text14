@@ -799,7 +799,7 @@ local menuData = {
     },
     ["TOOL"] = {
         "GET THE TOOL BREAK",
-        "ESP GUN",
+        "GET THE TOOL SPEED",
         "NO ESP TO ME",
         "ESP NAME",
         "ESP ABILITY",
@@ -931,9 +931,8 @@ if topTitle then
         elseif opt == "GET THE TOOL BREAK" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text346/refs/heads/main/Text346.lua"))()
                             
-        elseif opt == "KILL SHERIFF" then
-            getgenv().TARGET = "Sheriff"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text16/refs/heads/main/Text16.lua"))()
+        elseif opt == "GET THE TOOL SPEED" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text345/refs/heads/main/Text345.lua"))()
                             
         elseif opt == "KILL PLAYER" then
             loadstring(game:HttpGet(""))()
