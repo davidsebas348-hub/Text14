@@ -800,7 +800,7 @@ local menuData = {
     ["TOOL"] = {
         "GET THE TOOL BREAK",
         "GET THE TOOL SPEED",
-        "NO ESP TO ME",
+        "GET THE TOOL TRAP",
         "ESP NAME",
         "ESP ABILITY",
         "X-RAY",
@@ -934,8 +934,8 @@ if topTitle then
         elseif opt == "GET THE TOOL SPEED" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text345/refs/heads/main/Text345.lua"))()
                             
-        elseif opt == "KILL PLAYER" then
-            loadstring(game:HttpGet(""))()
+        elseif opt == "GET THE TOOL TRAP" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text344/refs/heads/main/Text344.lua"))()
 
         elseif opt == "INVISIBLE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text427/refs/heads/main/Text427.lua"))()
