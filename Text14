@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text338/refs/heads/main/Text338.lua"))() -- opcional para ños fakes tools
+
 -- ======================
 -- SBS HUB COMPLETO FINAL  (Build your escape))
 -- ======================
@@ -800,10 +802,10 @@ local menuData = {
         "FLING PLAYER",
     },
     ["TOOL"] = {
-        "GET THE TOOL BREAK",
-        "GET THE TOOL SPEED",
+        "GET THE TOOL TIME MACHINE",  
+        "GET THE TOOL SPORTS DRINK",
         "GET THE TOOL TRAP",
-        "GET THE TOOL DECOY",
+        "GET THE TOOL SPAWN DECOY",
         "ESP ABILITY",
         "X-RAY",
         "XRAY-TRANSPARENCY",
