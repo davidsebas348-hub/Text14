@@ -929,10 +929,10 @@ if topTitle then
         elseif opt == "AUTO PONER PANELS" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text12/refs/heads/main/Text12"))()
 
-        elseif opt == "GET THE TOOL BREAK" then
+        elseif opt == "GET THE TOOL TIME MACHINE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text346/refs/heads/main/Text346.lua"))()
                             
-        elseif opt == "GET THE TOOL SPEED" then
+        elseif opt == "GET THE TOOL SPORTS DRINK" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text345/refs/heads/main/Text345.lua"))()
                             
         elseif opt == "GET THE TOOL TRAP" then
@@ -941,7 +941,7 @@ if topTitle then
         elseif opt == "INVISIBLE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text427/refs/heads/main/Text427.lua"))()
                             
-        elseif opt == "GET THE TOOL DECOY" then
+        elseif opt == "GET THE TOOL SPAWN DECOY" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text357/refs/heads/main/Text357.lua"))()
                             
         elseif opt == "DESYNC" then
