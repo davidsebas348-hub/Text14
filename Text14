@@ -33,7 +33,7 @@ local doubleButtons = {
 
 -- poner título arriba de tal botón 
 local topTitles = {
-    ["GODMODE"] = "OP",
+    ["GODMOD"] = "OP",
     ["TRASPARENCY 0-"] = "OP",
 }
 
@@ -754,7 +754,7 @@ end
 -- ======================
 local scrollConfig = {
     ["MAIN"] = true,
-    ["ESP"] = true,
+    ["OP"] = true,
     ["INOCENT"] = true,
     ["SHERIFF"] = true,
     ["MURDERER"] = true,
@@ -768,15 +768,11 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","PANELS","GUARD","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","PANELS","GUARD","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
-    "GODMODE",
-    "SELF REVIVE",
-    "1 = 20",
     "DESYNC",
     "INVISIBLE",
-    "JUMP(BUTTON)",
     "SPEED",
     "JUMPPOWER",
     "GRAVITY",
@@ -819,13 +815,10 @@ local menuData = {
         "PLAYER NAME",
         "TP TO PLAYER",
     },
-    ["FAKEBOMB"] = {
-        "AUTO DOUBLE JUMP",
-        "AUTO DOUBLE JUMP (FAST)",
-        "AUTO DOUBLE JUMP (EQUIP TOOL)",
-        "MODE: NORMAL",
-        "JUMP POWER OF THE DOUBLE JUMP",  
-        "AUTO EQUIP FAKEBOMB",
+    ["OP"] = {
+        "GODMODE",
+        "SELF REVIVE",
+        "1 = 20",
     },
     ["AUTO FARM"] = {
         "AUTO FARM KILLS (beta)",
