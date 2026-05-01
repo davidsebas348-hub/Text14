@@ -803,7 +803,7 @@ local menuData = {
         "GET THE TOOL BREAK",
         "GET THE TOOL SPEED",
         "GET THE TOOL TRAP",
-        "ESP NAME",
+        "GET THE TOOL DECOY",
         "ESP ABILITY",
         "X-RAY",
         "XRAY-TRANSPARENCY",
@@ -939,9 +939,8 @@ if topTitle then
         elseif opt == "INVISIBLE" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text427/refs/heads/main/Text427.lua"))()
                             
-        elseif opt == "MAP" then
-            getgenv().TP_MODE = "JUMPPAD"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text430/refs/heads/main/Text430.lua"))()
+        elseif opt == "GET THE TOOL DECOY" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text357/refs/heads/main/Text357.lua"))()
                             
         elseif opt == "DESYNC" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text428/refs/heads/main/Text428.lua"))()
