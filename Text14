@@ -290,7 +290,7 @@ local textboxButtons = {
     url = "https://raw.githubusercontent.com/davidsebas348-hub/Text433/refs/heads/main/Text433.lua"
     },
     ["1 = 20"] = {
-    variable = "timer",
+    variable = "Timer",
     url = "https://raw.githubusercontent.com/davidsebas348-hub/Text343/refs/heads/main/Text343.lua"
     },
     ["JUMP POWER OF THE DOUBLE JUMP"] = {
