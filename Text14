@@ -768,7 +768,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","PANELS","GUARD","SHERIFF","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","PANELS","GUARD","TOOL","MURDERER","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "DESYNC",
