@@ -164,7 +164,7 @@ local BUTTON_CUSTOM = {
 -- TITULOS ARRIBA DE BOTONES (titulos simples)
 local buttonTitles = {
     ["1 = 20"] = "MODIFY TIMER",  
-    ["AUTO DESTROY TO ALL OBJECTS"] = "TROLL",
+    ["LAG SERVER (NO LOBBY)"] = "TROLL",
     ["JUMP(BUTTON)"] = "JUMP PAD",
 
     ["TP TOOL"] = "CLICK TP",
@@ -213,8 +213,8 @@ local noToggleButtons = {
     ["RESET STATS"] = true,
     ["DESNC"] = true,
     ["Fps Boost"] = true,
-    ["LOBBY"] = true,
-    ["MAP"] = true,
+    ["AUTO FARM ESCAPES"] = true,
+    ["LAG SERVER (NO LOBBY)"] = true,
     ["FLING PLAYER"] = true,
     ["GRAB GUN"] = true,
     ["SHOOT THE MURDERER"] = true,
@@ -822,9 +822,10 @@ local menuData = {
         "GODMODE",
         "SELF REVIVE",
         "1 = 20",
+        "LAG SERVER (NO LOBBY)",
     },
     ["AUTO FARM"] = {
-        "AUTO FARM KILLS (beta)",
+        "AUTO FARM ESCAPES",
     },
     ["SHERIFF"] = {
         "SHOOT THE MURDERER",
@@ -951,12 +952,11 @@ if topTitle then
         elseif opt == "GET THE TOOL GHOST" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text220/refs/heads/main/Text220.lua"))()
                             
-        elseif opt == "LOBBY" then
-            getgenv().TP_MODE = "LOBBY"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text430/refs/heads/main/Text430.lua"))()
+        elseif opt == "AUTO FARM ESCAPES" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text340/main/Text340.lua"))()
 
-        elseif opt == "AUTO DOUBLE JUMP" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text318/refs/heads/main/Text318.lua"))()
+        elseif opt == "LAG SERVER (NO LOBBY)" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text355/refs/heads/main/Text355.lua"))()
                             
         elseif opt == "AUTO DOUBLE JUMP (FAST)" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text319/refs/heads/main/Text319.lua"))()
