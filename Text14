@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text338/refs/heads/main/Text338.lua"))() -- opcional para ños fakes tools
+loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text338/refs/heads/main/Text338.lua"))() -- opcional para los fakes tools
 
 -- ======================
 -- SBS HUB COMPLETO FINAL  (Build your escape))
@@ -947,8 +947,8 @@ if topTitle then
         elseif opt == "DESYNC" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text428/refs/heads/main/Text428.lua"))()
 
-        elseif opt == "AUTO KILL SHERIFF" then
-            loadstring(game:HttpGet(""))()
+        elseif opt == "GET THE TOOL GHOST" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text220/refs/heads/main/Text220.lua"))()
                             
         elseif opt == "LOBBY" then
             getgenv().TP_MODE = "LOBBY"
