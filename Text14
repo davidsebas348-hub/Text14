@@ -757,7 +757,7 @@ end
 local scrollConfig = {
     ["MAIN"] = true,
     ["OP"] = true,
-    ["INOCENT"] = true,
+    ["TOOL"] = true,
     ["SHERIFF"] = true,
     ["MURDERER"] = true,
     ["TELEPORT"] = true,
@@ -802,9 +802,10 @@ local menuData = {
         "FLING PLAYER",
     },
     ["TOOL"] = {
-        "GET THE TOOL TIME MACHINE",  
-        "GET THE TOOL SPORTS DRINK",
         "GET THE TOOL TRAP",
+        "GET THE TOOL SPORTS DRINK",
+        "GET THE TOOL TIME MACHINE",
+        "GET THE TOOL GHOST",
         "GET THE TOOL SPAWN DECOY",
         "ESP ABILITY",
         "X-RAY",
