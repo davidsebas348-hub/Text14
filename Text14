@@ -164,7 +164,7 @@ local BUTTON_CUSTOM = {
 -- TITULOS ARRIBA DE BOTONES (titulos simples)
 local buttonTitles = {
     ["1 = 20"] = "MODIFY TIMER",  
-    ["LAG SERVER (NO LOBY)"] = "TROLL",
+    ["LAG SERVER (NO LOBBY)"] = "TROLL",
     ["JUMP(BUTTON)"] = "JUMP PAD",
 
     ["TP TOOL"] = "CLICK TP",
@@ -770,7 +770,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","PANELS","GUARD","TOOL","TROLL","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TROLL","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "DESYNC",
@@ -822,19 +822,18 @@ local menuData = {
         "GODMODE",
         "SELF REVIVE",
         "1 = 20",
+        "LAG SERVER (NO LOBBY)",
         
     },
     ["AUTO FARM"] = {
         "AUTO FARM ESCAPES",
     },
-    ["TROLL"] = {
-        "LAG SERVER (NO LOBBY)",
-        "",
+    ["FLING"] = {
         "¿ONLY VISIBLE?",
         "AUTO SHOOT THE MURDERER",
         "MODE: NO EQUIPPED KNIFE",
     },
-    ["Fps"] = {
+    ["FPS"] = {
         "Fps Boost"
     },
     ["YOUTUBE"] = {
