@@ -216,7 +216,7 @@ local noToggleButtons = {
     ["AUTO FARM ESCAPES"] = true,
     ["LAG SERVER (NO LOBBY)"] = true,
     ["FLING PLAYER"] = true,
-    ["GRAB GUN"] = true,
+    ["SPAWN TRAP"] = true,
     ["SHOOT THE MURDERER"] = true,
     [""] = true,
     [""] = true,  
@@ -770,7 +770,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TROLL","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TRAP","TROLL","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "DESYNC",
@@ -827,6 +827,9 @@ local menuData = {
     },
     ["AUTO FARM"] = {
         "AUTO FARM ESCAPES",
+    },
+    ["TRAP"] = {
+        "ANTI TRAPS",
     },
     ["FLING"] = {
         "¿ONLY VISIBLE?",
@@ -957,11 +960,11 @@ if topTitle then
         elseif opt == "LAG SERVER (NO LOBBY)" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text355/refs/heads/main/Text355.lua"))()
                             
-        elseif opt == "AUTO DOUBLE JUMP (FAST)" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text319/refs/heads/main/Text319.lua"))()
+        elseif opt == "ANTI TRAPS" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text348/refs/heads/main/Text348.lua"))()
                             
-        elseif opt == "HITBOX EXTENDER" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text368/refs/heads/main/Text368.lua"))()
+        elseif opt == "SPAWN TRAP" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text353/refs/heads/main/Text353.lua"))()
 
         elseif opt == "SHOOT THE MURDERER (BUTTON)" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text27/refs/heads/main/Text27.lua"))()
