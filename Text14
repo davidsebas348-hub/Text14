@@ -124,7 +124,7 @@ local BUTTON_GLOBAL_Y = 0
 -- ======================
 
 local BUTTON_CUSTOM = {
-    ["MODE: NO EQUIPPED KNIFE"] = {
+    ["DELAY"] = {
         size = UDim2.new(1, -50, 0, 27),
         x = 20,
         y = -6
@@ -271,8 +271,8 @@ local textboxButtons = {
     variable = "PLAYER",
     url = nil
     },
-    ["TRASPARENCY 0-1"] = {
-    variable = "HITBOX_TRANSPARENCY",
+    ["DELAY"] = {
+    variable = "TrapDelay",
     url = nil
     },
     ["PLAYER NAME."] = {
@@ -969,8 +969,8 @@ if topTitle then
         elseif opt == "SPAWN TRAP" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text353/refs/heads/main/Text353.lua"))()
 
-        elseif opt == "SHOOT THE MURDERER (BUTTON)" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text27/refs/heads/main/Text27.lua"))()
+        elseif opt == "AUTO SPAWN TRAP" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text354/refs/heads/main/Text354.lua"))()
                             
         elseif opt == "¿ONLY VISIBLE?" then
             loadstring("getgenv().OnlyVisible = not getgenv().OnlyVisible")()
