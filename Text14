@@ -829,6 +829,9 @@ local menuData = {
         "AUTO FARM ESCAPES",
     },
     ["TRAP"] = {
+        "SPAWN TRAP",
+        "AUTO SPAWN TRAPS",
+        "DELAY",
         "ANTI TRAPS",
     },
     ["FLING"] = {
