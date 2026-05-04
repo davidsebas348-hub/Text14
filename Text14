@@ -1,7 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text338/refs/heads/main/Text338.lua"))() -- opcional para los fakes tools
 
 -- ======================
--- SBS HUB COMPLETO FINAL  (Build your escape))
+-- SBS HUB COMPLETO FINAL  (Build your escape)
 -- ======================
 repeat task.wait() until game:IsLoaded()
 
@@ -830,7 +830,7 @@ local menuData = {
     },
     ["TRAP"] = {
         "SPAWN TRAP",
-        "AUTO SPAWN TRAPS",
+        "AUTO SPAWN TRAP",
         "DELAY",
         "ANTI TRAPS",
     },
