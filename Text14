@@ -136,7 +136,7 @@ local BUTTON_CUSTOM = {
         y = -6
     },
 
-    ["BULLET TRACERS"] = {
+    ["POWER"] = {
         size = UDim2.new(1, -50, 0, 27),
         x = 20,
         y = -6
@@ -226,6 +226,7 @@ local noToggleButtons = {
     ["INSTANT REVIVE"] = true,
     ["SPEED BOOST"] = true,
     ["SHOW PANELS"] = true,  
+    ["TP TO PLAYER"] = true,
 }
 
 -- BOTONES SIN EFECTO VERDE
@@ -295,8 +296,8 @@ local textboxButtons = {
     variable = "Timer",
     url = "https://raw.githubusercontent.com/davidsebas348-hub/Text343/refs/heads/main/Text343.lua"
     },
-    ["JUMP POWER OF THE DOUBLE JUMP"] = {
-    variable = "FAKE_JUMP_POWER",
+    ["POWER"] = {
+    variable = "TouchFlingForce",
     url = nil
 }
 }
@@ -807,8 +808,7 @@ local menuData = {
         "GET THE TOOL SPAWN DECOY", 
     },
     ["TELEPORT"] = {
-        "MAP",
-        "LOBBY",
+        "TP TOOL",
         "PLAYER NAME",
         "TP TO PLAYER",
     },
@@ -820,7 +820,7 @@ local menuData = {
         "INSTANT REVIVE",
         "EXTEND BREAK",
         "SPEED BOOST",    
-        "SHOW PANELS
+        "SHOW PANELS",
     },
     ["AUTO FARM"] = {
         "AUTO FARM ESCAPES",
@@ -1033,6 +1033,15 @@ if topTitle then
 
         elseif opt == "Fps Boost" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Fps-Boost-/refs/heads/main/FPS_BOOST_UNIVERSAL.lua"))()
+
+        elseif opt == "" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/NOCLIP/refs/heads/main/NOCLIP.lua"))()
+
+        elseif opt == "TOUCH FLING" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text281/refs/heads/main/Text281.lua"))()
+
+        elseif opt == "REVIVE TEAM (GUI)" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Revive-gui/refs/heads/main/Op_gui.lua"))()
 
         elseif opt == "YOUTUBE:SBS HUB" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Copiar-canal/refs/heads/main/Suscribete.lua"))()
