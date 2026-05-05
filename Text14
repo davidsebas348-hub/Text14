@@ -770,7 +770,7 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TRAP","PROXIMITY PROMPT","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TRAP","PROXIMITY PROMPT","TELEPORT","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "DESYNC",
@@ -783,17 +783,14 @@ local menuData = {
     "INFINITI JUMP",
     "FLY SPEED",
     "FLY",
-},
+    },
     ["PANELS"] = {
         "AUTO COLLECT PANELS",
         "AUTO PONER PANELS",
-        "HITBOX EXTENDER",
-        "SIZE",
-        "TRASPARENCY 0-1",
+        "ESP PANELS",
     },
     ["GUARD"] = {
         "TRAP GUARD",
-        "AUTO GRAB GUN",
     },
     ["FLING"] = {
         "TOUCH FLING",
@@ -1031,8 +1028,8 @@ if topTitle then
         elseif opt == "NOCLIP" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/NOCLIP/refs/heads/main/NOCLIP.lua"))()
 
-        elseif opt == "HITBOX EXTENDER" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text368/refs/heads/main/Text368.lua"))()
+        elseif opt == "ESP PANELS" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text211/refs/heads/main/Text211.lua"))()
 
         elseif opt == "Fps Boost" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Fps-Boost-/refs/heads/main/FPS_BOOST_UNIVERSAL.lua"))()
