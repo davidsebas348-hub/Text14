@@ -217,11 +217,11 @@ local noToggleButtons = {
     ["LAG SERVER (NO LOBBY)"] = true,
     ["FLING PLAYER"] = true,
     ["SPAWN TRAP"] = true,
-    ["SHOOT THE MURDERER"] = true,
-    [""] = true,
-    [""] = true,  
-    [""] = true,
-    [""] = true,
+    ["GET THE TOOL SPORTS DRINK"] = true,
+    ["GET THE TOOL TRAP"] = true,
+    ["GET THE TOOL TIME MACHINE"] = true,  
+    ["GET THE TOOL SPAWN DECOY"] = true,
+    ["GET THE TOOL GHOST"] = true,
     [""] = true,
     [""] = true,
     ["BULLET TRACERS"] = true,
@@ -770,13 +770,13 @@ local scrollConfig = {
 -- ======================
 -- MENUS
 -- ======================
-local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TRAP","TROLL","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
+local menuOrder = {"MAIN","OP","GAMEPASS","PANELS","GUARD","TOOL","TRAP","PROXIMITY PROMPT (FUNTIONS)","TELEPORT","FAKEBOMB","FLING","AUTO FARM","Fps","YOUTUBE"}
 local menuData = {
     ["MAIN"] = {
     "DESYNC",
     "INVISIBLE",
     "SPEED",
-    "JUMPPOWER",
+    "JUMPPOWER",  
     "GRAVITY",
     "RESET STATS",
     "NOCLIP",
@@ -792,7 +792,7 @@ local menuData = {
         "TRASPARENCY 0-1",
     },
     ["GUARD"] = {
-        "GRAB GUN",
+        "TRAP GUARD",
         "AUTO GRAB GUN",
     },
     ["FLING"] = {
@@ -802,6 +802,7 @@ local menuData = {
         "FLING PLAYER",
     },
     ["TOOL"] = {
+        "NO COOLDOWN TOOL",
         "GET THE TOOL TRAP",
         "GET THE TOOL SPORTS DRINK",
         "GET THE TOOL TIME MACHINE",
@@ -834,9 +835,9 @@ local menuData = {
         "DELAY",
         "ANTI TRAPS",
     },
-    ["FLING"] = {
-        "¿ONLY VISIBLE?",
-        "AUTO SHOOT THE MURDERER",
+    ["PROXIMITY PROMPT (FUNTIONS)"] = {
+        "INSTANT PROMPT",
+        "NOCLIP PROMPT",
         "MODE: NO EQUIPPED KNIFE",
     },
     ["FPS"] = {
@@ -975,19 +976,17 @@ if topTitle then
         elseif opt == "¿ONLY VISIBLE?" then
             loadstring("getgenv().OnlyVisible = not getgenv().OnlyVisible")()
                             
-        elseif opt == "MAP" then
-            getgenv().TeleportMode = "mapa"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text327/refs/heads/main/Text327.lua"))()
+        elseif opt == "NO COOLDOWN TOOL" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text356/refs/heads/main/Text356.lua"))()
 
-        elseif opt == "LOBBY" then
-            getgenv().TeleportMode = "lobby"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text327/refs/heads/main/Text327.lua"))()
+        elseif opt == "INSTANT PROMPT" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text265/refs/heads/main/Text265.lua"))()
                             
-        elseif opt == "GRAB GUN" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text152/refs/heads/main/Text152.lua"))()
+        elseif opt == "NOCLIP PROMPT" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text269/refs/heads/main/Text269.lua"))()
                             
-        elseif opt == "AUTO SHOOT THE MURDERER" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text146/refs/heads/main/Text146.lua"))()
+        elseif opt == "TRAP GUARD" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text213/refs/heads/main/Text213.lua"))()
 
         elseif opt == "" then
             loadstring(game:HttpGet(""))()
