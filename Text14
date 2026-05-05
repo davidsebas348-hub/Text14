@@ -36,7 +36,7 @@ local doubleButtons = {
 -- poner título arriba de tal botón 
 local topTitles = {
     ["INSTANT REVIVE"] = "FREE GAMEPASS",
-    ["TRASPARENCY 0-"] = "OP",
+    ["SPEED"] = "LOCALPLAYER",
 }
 
 -- poner títulos abajo de tal botón
@@ -393,7 +393,7 @@ end
 local title = Instance.new("TextLabel", mainFrame)
 title.Size = UDim2.new(1,0,0,50)
 title.BackgroundColor3 = Color3.fromRGB(0,0,0)
-title.Text = "SBS HUB | Pistol Arena"
+title.Text = "SBS HUB | Build Your Escape"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
 title.TextScaled = true
@@ -800,7 +800,7 @@ local menuData = {
         "FLING PLAYER",
     },
     ["TOOL"] = {
-        "NO COOLDOWN TOOL",
+        "NO COOLDOWN TOOL (NO FAKE TOOL)",
         "GET THE TOOL TRAP",
         "GET THE TOOL SPORTS DRINK",
         "GET THE TOOL TIME MACHINE",
@@ -971,7 +971,7 @@ if topTitle then
         elseif opt == "" then
             loadstring("getgenv().OnlyVisible = not getgenv().OnlyVisible")()
                             
-        elseif opt == "NO COOLDOWN TOOL" then
+        elseif opt == "NO COOLDOWN TOOL (NO FAKE TOOL)" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text356/refs/heads/main/Text356.lua"))()
 
         elseif opt == "INSTANT PROMPT" then
