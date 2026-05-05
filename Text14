@@ -1,7 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/davidsebas348-hub/Text338/refs/heads/main/Text338.lua"))() -- opcional para los fakes tools
 
 -- ======================
--- SBS HUB COMPLETO FINAL  (Build your escape)
+-- SBS HUB COMPLETO FINAL  (Build your escape))
 -- ======================
 repeat task.wait() until game:IsLoaded()
 
@@ -227,6 +227,7 @@ local noToggleButtons = {
     ["SPEED BOOST"] = true,
     ["SHOW PANELS"] = true,  
     ["TP TO PLAYER"] = true,
+    ["AUTO PONER PANELS"] = true,
 }
 
 -- BOTONES SIN EFECTO VERDE
